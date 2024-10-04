@@ -26,7 +26,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Set MLflow tracking URI
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
-
 # Function to log model and metrics with MLflow
 def log_model_with_mlflow(model, model_name):
     with mlflow.start_run():
@@ -45,16 +44,15 @@ def log_model_with_mlflow(model, model_name):
         mlflow.log_metric("r2", r2)
 
         # Log the model
-        mlflow.sklearn.log_model(model, model_name,artifact_path="./mlruns")
+        # Correct the artifact_path parameter
+        mlflow.sklearn.log_model(model, model_name, artifact_path=f"models/{model_name}")
         
         print(f"{model_name} logged with MSE: {mse} and R2: {r2}")
-        
-    mlflow.end_run()
 
 # Linear Regression
 linear_reg_model = LinearRegression()
-log_model_with_mlflow(linear_reg_model, "Linear Regression")
+log_model_with_mlflow(linear_reg_model, "Linear_Regression")
 
 # Random Forest Regression
 rf_model = RandomForestRegressor(n_estimators=100)
-log_model_with_mlflow(rf_model, "Random Forest Regression")
+log_model_with_mlflow(rf_model, "Random_Forest_Regression")
