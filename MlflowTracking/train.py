@@ -43,9 +43,8 @@ def log_model_with_mlflow(model, model_name):
         mlflow.log_metric("mse", mse)
         mlflow.log_metric("r2", r2)
 
-        # Log the model
-        # Correct the artifact_path parameter
-        mlflow.sklearn.log_model(model, model_name, artifact_path=f"models/{model_name}")
+        # Log the model with explicit artifact_path
+        mlflow.sklearn.log_model(model, artifact_path=f"models/{model_name}", registered_model_name=model_name)
         
         print(f"{model_name} logged with MSE: {mse} and R2: {r2}")
 
