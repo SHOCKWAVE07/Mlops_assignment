@@ -6,7 +6,7 @@ import mlflow
 import pandas as pd
 
 # Load the dataset
-df = pd.read_csv("MLflowTracking/data/hour.csv")
+df = pd.read_csv("MlflowTracking/data/hour.csv")
 
 # Feature Engineering: Adding new features and removing unnecessary columns
 df['avg_temp'] = (df['atemp'] + df['temp']) / 2
