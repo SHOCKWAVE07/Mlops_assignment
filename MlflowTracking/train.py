@@ -24,7 +24,7 @@ y = df['cnt']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Set MLflow tracking URI
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+# mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 # Function to log model and metrics with MLflow
 def log_model_with_mlflow(model, model_name):

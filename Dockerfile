@@ -6,7 +6,7 @@ build-essential \
 libssl-dev \
 libffi-dev \
 python3-dev
-RUN pip install --no-cache-dir -r MlflowTracking/requirements.txt
+RUN pip install -r requirements.txt
 EXPOSE 80
 ENV NAME MLOpsLab
 CMD ["python", "MlflowTracking/train.py"]

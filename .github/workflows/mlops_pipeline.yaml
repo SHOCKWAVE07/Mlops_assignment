@@ -26,11 +26,6 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Start MLflow Server
-        run: |
-          mkdir -p ./mlruns  
-          nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000 &
-
       - name: Run training script
         run: |
-          python MlflowTracking/train.py
+          python3 MlflowTracking/train.py
